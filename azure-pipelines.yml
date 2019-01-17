@@ -13,5 +13,7 @@ variables:
   imageName: 'your-container-image-name:$(build.buildId)'
 
 steps:
-- script: docker build -f Dockerfile -t $(imageName) .
+- script: |
+    docker build -f Dockerfile -t $(imageName) .
+    haxe -main Main -js testjs.js
   displayName: 'docker build'
